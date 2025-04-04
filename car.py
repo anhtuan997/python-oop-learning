@@ -16,9 +16,14 @@ class Car:
 
     def describe(self):
         return f"This is a {self.__color} {self.__brand} car"
+class ElectricCar(Car):
+    def __init__(self, brand, color, battery):
+        super().__init__(brand, color)
+        self.__battery = battery
+    def describe(self):
+        return f"This is a {self.get_color()} {self._Car__brand} car with {self.__battery} kWh battery"
 
-car1 = Car("Toyota", "red")
-print(car1.get_color())  # Output: red
-car1.set_color("blue")   # Đổi màu hợp lệ
-print(car1.get_color())  # Output: blue
-car1.set_color("yellow") # Màu không hợp lệ!
+#test
+if __name__ == "__main__":
+    car2 = ElectricCar("Tesla", "black", 100)
+    print(car2.describe())
